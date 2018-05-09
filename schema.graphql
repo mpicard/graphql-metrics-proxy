@@ -1,0 +1,28 @@
+type Query {
+  me: User
+  fn(a: String, b: Int): User
+}
+
+type User {
+  name: String
+  email: String
+  age: Int
+  parent: User
+  other: Other
+}
+
+type Other {
+  thing: Float
+  isBoolean: Boolean
+  nested: Nested
+}
+
+type Nested {
+  name: String
+  deep: Deep
+}
+
+type Deep {
+  id: ID
+  isBoolean: Boolean
+}
