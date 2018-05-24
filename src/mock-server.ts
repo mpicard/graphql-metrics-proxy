@@ -11,7 +11,7 @@ addMockFunctionsToSchema({ schema });
 const app = express();
 
 // Start proxy server
-const proxy = spawn('ts-node', ['-r', 'dotenv/config', __dirname + '/proxy.ts']);
+const proxy = spawn('node', ['-r', 'dotenv/config', __dirname + '/proxy.js']);
 proxy.stdout.pipe(process.stdout);
 proxy.stderr.pipe(process.stderr);
 
@@ -26,6 +26,8 @@ app.use('/graphql', express.json(), graphqlExpress({
 app.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql'
 }));
+
+app.get('/', (req, res) => res.redirect('/graphiql'));
 
 app.listen(5000, () => {
   console.log(`GraphQL started http://localhost:5000/graphiql`);

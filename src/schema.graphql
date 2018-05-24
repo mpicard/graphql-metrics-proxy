@@ -9,6 +9,7 @@ type User {
   age: Int
   parent: User
   other: Other
+  codes: [Int]
 }
 
 type Other {

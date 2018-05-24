@@ -1,0 +1,15 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": false,
+    "outDir": "lib",
+    "noImplicitAny": false,
+    "lib": ["es2016", "esnext.asynciterable"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src/**/*"]
+}
