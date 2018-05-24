@@ -27,6 +27,8 @@ app.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql'
 }));
 
+app.get('/', (req, res) => res.redirect('/graphiql'));
+
 app.listen(5000, () => {
   console.log(`GraphQL started http://localhost:5000/graphiql`);
 });
