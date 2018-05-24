@@ -11,7 +11,7 @@ addMockFunctionsToSchema({ schema });
 const app = express();
 
 // Start proxy server
-const proxy = spawn('ts-node', ['-r', 'dotenv/config', __dirname + '/proxy.ts']);
+const proxy = spawn('node', ['-r', 'dotenv/config', __dirname + '/proxy.js']);
 proxy.stdout.pipe(process.stdout);
 proxy.stderr.pipe(process.stderr);
 
