@@ -1,9 +1,17 @@
 import * as express from 'express';
-import { Agent } from 'http';
+import * as http from 'http';
+import * as https from 'https';
 import * as request from 'request';
 
 const port = process.env.PORT || 4000;
 const app = express();
+
+let Agent;
+if (process.env.NODE_ENV === 'production') {
+  Agent = https.Agent;
+} else {
+  Agent = http.Agent;
+}
 
 // create default request to the original graphQL server
 const origin = request.defaults({
